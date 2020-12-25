@@ -19,3 +19,37 @@ for line in lines:
         continue
         
     break
+    
+#day 2 part 1
+import math
+
+f = open("/Users/shantalaika/Desktop/this.txt", "r")
+count = 0
+#lines = f.readlines()
+for line in f:
+    passList = line.split()
+    limits = passList[0].split("-")
+    letter = passList[1][:1]
+    counter = passList[2].count(letter)
+    if int(limits[0])<= counter <= int(limits[1]):
+        count = count + 1
+
+print(count)
+
+#day 2 part 2
+
+import math
+f = open("/Users/shantalaika/Desktop/this.txt", "r")
+count = 0
+#lines = f.readlines()
+for line in f:
+    passList = line.split()
+    limits = passList[0].split("-")
+    letter = passList[1][:1]
+    word = passList[2]
+    if word[int(limits[0])-1] == letter:
+        if word[int(limits[1])-1] != letter:
+            count = count + 1
+    elif word[int(limits[1])-1] == letter:
+        count = count + 1
+print(count)
