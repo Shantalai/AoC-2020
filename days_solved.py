@@ -53,3 +53,59 @@ for line in f:
     elif word[int(limits[1])-1] == letter:
         count = count + 1
 print(count)
+
+#day 3
+
+import math
+f = open("/Users/shantalaika/Desktop/this.txt", "r")
+inp = [line.rstrip() for line in f]
+
+i = 0
+c = 0
+for x in inp:
+    l = len(x)
+    if i >= l:
+        i -= l
+    if (x[i] == '#'):
+            c += 1
+    i += 3
+
+print("Solution : ", c)
+
+import math
+f = open("/Users/shantalaika/Desktop/this.txt", "r")
+inp = [line.rstrip() for line in f]
+slopes = [1,3,5,7]
+count = 0
+total = 1
+linecount = 0 
+countlist = []
+for slope in slopes:
+    i = 0
+    count = 0
+    for x in inp:
+        l = len(x)
+        if i >= l:
+            i -= l
+        if (x[i] == '#'):
+            count += 1
+        i += slope
+    countlist.append(count)
+    total *= count
+    print(count,countlist)
+count = 0
+i =0 
+for x in inp:
+    linecount += 1
+    if linecount % 2 == 0:
+        l = len(x)
+        if i >= l:
+            i -= l
+        if (x[i] == '#'):
+            count += 1
+        i += 1
+countlist.append(count)
+total *= count
+print(count, countlist) 
+print("Solution : ", total)
+
