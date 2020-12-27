@@ -109,3 +109,21 @@ total *= count
 print(count, countlist) 
 print("Solution : ", total)
 
+#Day 4 part 2
+
+import math
+import re
+
+f = open("/Users/shantalaika/Desktop/this.txt", "r")
+allf = [ passp.replace('\n', ' ') for passp in f.read().split('\n\n')]
+count = 0 
+for l in allf:
+    if(re.search('(^| )byr:(19[2-9][0-9]|200[0-2])( |$)', l)):
+        if(re.search('(^| )iyr:(201[0-9]|2020)( |$)', l)):
+            if(re.search('(^| )eyr:(202[0-9]|2030)( |$)',l)):
+                if(re.search('(^| )hgt:((1[5-8][0-9]|19[0-3])cm|(59|6[0-9]|7[0-6])in)( |$)',l)):
+                    if(re.search('(^| )hcl:#([a-z0-9]{6})( |$)',l)):
+                        if(re.search('(^| )ecl:(amb|blu|brn|gry|grn|hzl|oth)( |$)',l)):
+                            if(re.search('(^| )pid:[0-9]{9}( |$)',l)):
+                                count +=1
+print(count)
